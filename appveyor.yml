@@ -23,6 +23,6 @@ build: false
 test_script:
   - cargo build --verbose --all
   - cargo test --verbose --all
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
