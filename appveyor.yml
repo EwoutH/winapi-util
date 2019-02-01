@@ -1,5 +1,7 @@
 environment:
   matrix:
+  - TARGET: aarch64-pc-windows-msvc
+    BITS: 64
   - TARGET: x86_64-pc-windows-gnu
     BITS: 64
     MSYS2: 1
