@@ -4,7 +4,7 @@ environment:
   matrix:
   - TARGET: aarch64-pc-windows-msvc
     BITS: 64
-    NIGHTLY: "--default-toolchain nigthly"
+    NIGHTLY: "--default-toolchain nightly"
   - TARGET: x86_64-pc-windows-gnu
     BITS: 64
     MSYS2: 1
