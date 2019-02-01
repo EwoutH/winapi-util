@@ -11,15 +11,15 @@ environment:
       host: x86_64-pc-windows-msvc    # Triple of host platform
       channel: beta
       bits: 64
-    - platform: 
+    - platform: x86_64
       target: x86_64-pc-windows-gnu
       channel: stable
       bits: 64
-    - platform: 
+    - platform: i686
       target: i686-pc-windows-msvc
       channel: stable
       bits: 32
-    - platform: 
+    - platform: i686
       target: i686-pc-windows-gnu
       channel: stable
       bits: 32
@@ -31,7 +31,7 @@ matrix:
 install:
     - git submodule update --init
     - appveyor DownloadFile https://win.rustup.rs/ -FileName rustup-init.exe  # Downloads Rustup-init
-    - if not exist "%host%" (set host="%target%")                             # If no host is specified, use target
+    - if not defined "%host%" (set host="%target%")                             # If no host is specified, use target
     - rustup-init -yv --default-toolchain %channel% --default-host %host%     # Installs Rust
     - set PATH=%PATH%;%USERPROFILE%\.cargo\bin;%APPVEYOR_BUILD_FOLDER%        # Adds Rust tools (Cargo, Rustup, etc.) to path
     - if defined MSYS2 set PATH=C:\msys64\mingw%bits%\bin;%PATH%
